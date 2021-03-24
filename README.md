@@ -1,2 +1,4 @@
 # Nier-Automata-Save-Converter
-Allow you to convert NieR Automata Save Game from Steam to Microsoft Store and vice-versa.
+
+<h1>It's important to <u>ALWAYS</u> backup your save files</h1>
+I shouldn't be blamed for any potential loss of backup you are warned.
