@@ -30,7 +30,6 @@ namespace NieR_Automata_Save_Converter
             {
                 string LocalAppData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
                 openFileDialog.InitialDirectory = LocalAppData + "\\Packages\\39EA002F.NieRAutomataPC_n746a19ndrrjg\\SystemAppData\\wgs";
-                MessageBox.Show(openFileDialog.InitialDirectory);
                 openFileDialog.Filter = "HEXADECIMAL FILENAME (*.*)|*.*";
                 openFileDialog.FilterIndex = 2;
 
