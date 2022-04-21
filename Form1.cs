@@ -56,8 +56,8 @@ namespace NieR_Automata_Save_Converter
         {
             if (loadedMStoreSave?.Length > 0 && loadedSteamSave?.Length > 0)
             {
-                DialogResult confirmDialog = MessageBox.Show($"The save will convert \n {SteamSaveName.Text} (Your Microsoft SaveGame)\n " +
-                    $"to\n{MicrosoftSaveFileName.Text} (New save)\nAre you sure you want to proceed ?", "Confirm ?", MessageBoxButtons.YesNoCancel);
+                DialogResult confirmDialog = MessageBox.Show($"The save will convert \n {SteamSaveName.Text} (Your Steam SaveGame)\n " +
+                    $"to\n{MicrosoftSaveFileName.Text} (Microsoft Savegame)\nAre you sure you want to proceed ?", "Confirm ?", MessageBoxButtons.YesNoCancel);
                 if (confirmDialog == DialogResult.Yes)
                 {
                     Array.Copy(loadedSteamSave, 0xC, loadedMStoreSave, 0xC, loadedSteamSave.Length-0xC);
@@ -111,14 +111,14 @@ namespace NieR_Automata_Save_Converter
         {
             if (loadedMStoreSave?.Length > 0 && loadedSteamSave?.Length > 0)
             {
-                DialogResult confirmDialog = MessageBox.Show($"The save will convert \n {SteamSaveName.Text} (Your true save game)\n " +
-                    $"to\n{MicrosoftSaveFileName.Text} (New save)\nAre you sure you want to proceed ?", "Confirm ?", MessageBoxButtons.YesNoCancel);
+                DialogResult confirmDialog = MessageBox.Show($"The save will convert \n {MicrosoftSaveFileName.Text} (Your Microsoft save)\n " +
+                    $"to\n{SteamSaveName.Text} (Steam save)\nAre you sure you want to proceed ?", "Confirm ?", MessageBoxButtons.YesNoCancel);
                 if (confirmDialog == DialogResult.Yes)
                 {
                     Array.Copy(loadedMStoreSave, 0xC, loadedSteamSave, 0xC, loadedMStoreSave.Length-0xC);
                     try
                     {
-                        File.WriteAllBytes(steamSaveFolder, loadedMStoreSave);
+                        File.WriteAllBytes(steamSaveFolder, loadedSteamSave);
                         MessageBox.Show("Complete!");
                     }
                     catch (Exception exception)
@@ -131,11 +131,6 @@ namespace NieR_Automata_Save_Converter
             {
                 MessageBox.Show("Error, one of the file have not been loaded !");
             }
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
